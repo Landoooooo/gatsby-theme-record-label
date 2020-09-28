@@ -6,5 +6,5 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: ['gatsby-plugin-sass',{resolve: "gatsby-plugin-web-font-loader", options: {custome: {families: ["Cursive"], urls: ["/fonts/fonts.css"]}}}],
 }
