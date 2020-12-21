@@ -46,14 +46,61 @@ export const ArtistComponent = styled.div`
     width: 20em;
     height: 23em;
     padding: 1em;
+
+    @media(max-width: 768px){
+        margin-right:0;
+    }
 `;
 
 export const ArtistContainer = styled.div`
-    margin: 5em 20em 0 20em
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 5em 20em 0 20em;
+
+    @media(max-width: 768px){
+        margin:0;
+    }
 `
 
 export const ArtistImage = styled.img`
     width: 325px;
     height: 325px;
     margin-bottom: 0.5em;
+
+    @media(max-width: 768px){
+        margin-top:1em;
+    }
+`
+
+export const HeaderTitle = styled.h1`
+    font-family: Cursive;
+    color: #f81800;
+    font-size: 3em;
+
+    @media(max-width: 768px){
+        font-size:2em;
+    }
+`;
+
+export const IndexContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 5em 10em 0 10em;
+
+    @media(max-width: 768px){
+        justify-content: center;
+        margin: 0;
+        margin-top: 1em;
+    }
+`;
+
+export const AlbumContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+
+    @media(max-width: 768px){
+        justify-content: center;
+    }
 `

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../layout';
-import { ArtistImage, ArtistContainer, ComponentLink } from '../styles/styledComponents';
+import { ArtistImage, ArtistContainer, ComponentLink, AlbumContainer } from '../styles/styledComponents';
 import Album from '../components/album';
 import pandamonium from '../assets/images/pandamonium.jpg';
 
@@ -13,9 +13,9 @@ const Artist = ({
             <ArtistContainer>
                 <ArtistImage src={photo || pandamonium} />
                 <h2 style={{ color: 'red' }}>Albums</h2>
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                <AlbumContainer>
                     {albums && albums.map((album) => <ComponentLink to={`/artist/${name}/${album.name}`}><Album data={album} /></ComponentLink>)}
-                </div>
+                </AlbumContainer>
             </ArtistContainer>
         </Layout>
     );

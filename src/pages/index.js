@@ -1,12 +1,35 @@
 import React from "react"
 import Layout from "../layout"
-import { artists } from "../helpers/data"
-import Artist from "../components/artist";
-import { ComponentLink } from "../styles/styledComponents"
-export default function Home() {
-  return <Layout>
-    <div style={{ margin: "5em 10em 0 10em", display: "flex", flexWrap: "wrap", width: "100%" }}>
-      {artists.map(artist => <ComponentLink to={`/artist/${artist.name}`}><Artist data={artist} /></ComponentLink>)}
-    </div>
-  </Layout>
+import Artist from "../components/artist"
+import { graphql } from "gatsby"
+import { ComponentLink, IndexContainer } from "../styles/styledComponents"
+
+export const query = graphql`
+  query {
+    pandamonium {
+      artists {
+        name
+        photo
+        albums {
+          name
+          photo
+        }
+      }
+    }
+  }
+`
+
+export default function Home({ data }) {
+  const { pandamonium } = data
+  return (
+    <Layout>
+      <IndexContainer>
+        {pandamonium.artists.map(artist => (
+          <ComponentLink to={`/artist/${artist.name}`}>
+            <Artist data={artist} />
+          </ComponentLink>
+        ))}
+      </IndexContainer>
+    </Layout>
+  )
 }
